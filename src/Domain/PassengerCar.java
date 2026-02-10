@@ -1,19 +1,15 @@
 package Domain;
 
+import java.time.LocalDate;
+
 public class PassengerCar extends Car {
     private int seats;
     private String bodyType; // тип кузова --- sedan, hatchback, SUV, coupe
     private String fuelType; // тип палива --- бензин, дизель, електро, гібрид
 
-    public PassengerCar(){
-        System.out.println("Passenger Car is created.");
+    public PassengerCar(String carName, String modelName, String driverName, String country, LocalDate dateOfRegister) {
+        super(carName, modelName, driverName, country, dateOfRegister);
     }
-
-    public String getPassegerString(){
-        return carName + " " + modelName + " seats: " + seats;
-    }
-
-
 
     public int getSeats() {
         return seats;

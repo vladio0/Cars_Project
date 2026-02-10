@@ -1,16 +1,15 @@
 package Domain;
 
 
-
 public class SaveCarOrder {
     public static void main(String [] args) {
    // CarOrder car1 = new CarOrder();
 
-    buildCarOrder();
+    //buildCarOrder();
 
      //  long ans = saveCarOrder(car1);
        // System.out.println(ans);
-
+buildCarOrder(10);
 
     }
 
@@ -21,23 +20,17 @@ public class SaveCarOrder {
         return answer;
     }
 
-    static CarOrder buildCarOrder(){
-
+    public static CarOrder buildCarOrder(long carId){
         CarOrder car1 = new CarOrder();
-
-        PassengerCar seats = new PassengerCar();
-
-//        seats.setCarName("BMW");
-//        seats.setModelName("X5");
-//        seats.setSeats(5);
-//        car1.setSeats(seats);
-//
-//        seats.getPassegerString();
-//
-//        String ans = seats.getPassegerString();
-//        System.out.println(ans);
+        car1.setCarId(carId);
+        CarOrder car2 = car1;
+        printCarOrder(car2);
+      //  PassengerCar seats = new PassengerCar("Fiat","500", "Alexei", "Ukraine", null);
 
         return car1;
     }
 
+    static void printCarOrder(CarOrder co1){
+        System.out.println(co1.getCarId());
+    }
 }

@@ -1,9 +1,9 @@
 package Domain;
 import java.time.LocalDate;
 
-public class Car {
-    protected String carName;
-    protected String modelName;
+public abstract class Car {
+    private String carName;
+    private String modelName;
     private String driverName;
     private String country; // країна реєстрації
     private LocalDate dateOfRegister; // дата реєстрації
@@ -11,15 +11,13 @@ public class Car {
     private String color; // колір машини
     private int mileage; // пробіг
 
-    public Car(){
-        System.out.println("Car is created.");
+    public Car(String carName, String modelName, String driverName, String country, LocalDate dateOfRegister) {
+        this.carName = carName;
+        this.modelName = modelName;
+        this.driverName = driverName;
+        this.country = country;
+        this.dateOfRegister = dateOfRegister;
     }
-
-
-    public String getPassegerString(){
-        return carName + " " + modelName;
-    }
-
 
     public String getCarName() {
         return carName;

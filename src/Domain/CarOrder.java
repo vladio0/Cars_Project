@@ -5,7 +5,24 @@ public class CarOrder{
     private Car carName;
     private Car modelName;
     private PassengerCar seats;
+    private PassengerCar BodyType;
+    private PassengerCar FuelType;
 
+    public PassengerCar getBodyType() {
+        return BodyType;
+    }
+
+    public void setBodyType(PassengerCar bodyType) {
+        BodyType = bodyType;
+    }
+
+    public PassengerCar getFuelType() {
+        return FuelType;
+    }
+
+    public void setFuelType(PassengerCar fuelType) {
+        FuelType = fuelType;
+    }
 
     public long getCarId() {
         return carId;

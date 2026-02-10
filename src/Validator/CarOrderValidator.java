@@ -1,13 +1,11 @@
-package Domain;
+package Validator;
 
 import Answer.AnswerCityRegister;
 import Answer.AnswerInsurance;
 import Answer.AnswerMark;
 import Answer.AnswerMileage;
-import Validator.CarInsuranceValidator;
-import Validator.CarMarkValidator;
-import Validator.CarMileageValidator;
-import Validator.CityRegisterValidator;
+import Domain.CarOrder;
+import Domain.SaveCarOrder;
 import mail.MailSender;
 
 
@@ -33,26 +31,39 @@ public class CarOrderValidator {
     }
 
     public void checkAll() {
-        CarOrder car1 = readCarOrder();
+        CarOrder [] car1Array = readCarOrders();
 
+//        for (int i = 0; i < car1Array.length; i++){
+//            System.out.println();
+//            checkOneOrder(car1Array[i]);
+//        }
+
+        for(CarOrder car1 : car1Array){
+            System.out.println();
+            checkOneOrder(car1);
+
+        }
+    }
+
+    public CarOrder [] readCarOrders(){
+        CarOrder [] car1Array = new CarOrder[3];
+
+        for(int i = 0; i < car1Array.length; i++){
+            car1Array[i] = SaveCarOrder.buildCarOrder(i);
+        }
+        return car1Array;
+    }
+
+    public void checkOneOrder(CarOrder car1){
         AnswerMark markAnswer = checkCarMark(car1);
         AnswerCityRegister cityAnswer = checkCityRegister(car1);
         AnswerInsurance insuranceAnswer = checkCarInsurance(car1);
         AnswerMileage mileageAnswer = checkCarMileage(car1);
 
         sendMail(car1);
-
-        car1 = readCarOrder();
-    }
-
-    public CarOrder readCarOrder(){
-        CarOrder car1 = new CarOrder();
-        return car1;
     }
 
     public AnswerMark checkCarMark(CarOrder car1){
-
-        CarMarkValidator cmv1 = new CarMarkValidator();
         return markVal.checkCarMark(car1);
     }
 

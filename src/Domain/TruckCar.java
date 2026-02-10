@@ -1,10 +1,16 @@
 package Domain;
 
+import java.time.LocalDate;
+
 public class TruckCar extends Car {
     private double loadCapacity; // Вантажопідйомність ---  у тоннах або кг
     private String truckType; // фургон, самоскид, тягач, цистерна
     private String engineType; // дизель, газ
     private double grossWeight; // максимальна вага
+
+    public TruckCar(String carName, String modelName, String driverName, String country, LocalDate dateOfRegister) {
+        super(carName, modelName, driverName, country, dateOfRegister);
+    }
 
     public double getLoadCapacity() {
         return loadCapacity;
