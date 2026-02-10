@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class TruckCar extends Car {
     private double loadCapacity; // Вантажопідйомність ---  у тоннах або кг
-    private String truckType; // фургон, самоскид, тягач, цистерна
+    private String truckType; // van, dump truck, tractor, tank truck
     private String engineType; // дизель, газ
     private double grossWeight; // максимальна вага
 

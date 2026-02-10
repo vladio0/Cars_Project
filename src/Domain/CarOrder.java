@@ -2,26 +2,18 @@ package Domain;
 
 public class CarOrder{
     private long carId;
-    private Car carName;
-    private Car modelName;
-    private PassengerCar seats;
-    private PassengerCar BodyType;
-    private PassengerCar FuelType;
+    private PassengerCar passenger;
+    private PassengerCar electro;
+    private TruckCar truck;
 
-    public PassengerCar getBodyType() {
-        return BodyType;
+
+
+    public TruckCar getTruck() {
+        return truck;
     }
 
-    public void setBodyType(PassengerCar bodyType) {
-        BodyType = bodyType;
-    }
-
-    public PassengerCar getFuelType() {
-        return FuelType;
-    }
-
-    public void setFuelType(PassengerCar fuelType) {
-        FuelType = fuelType;
+    public void setTruck(TruckCar truck) {
+        this.truck = truck;
     }
 
     public long getCarId() {
@@ -32,27 +24,19 @@ public class CarOrder{
         this.carId = carId;
     }
 
-    public Car getCarName() {
-        return carName;
+    public PassengerCar getPassenger() {
+        return passenger;
     }
 
-    public void setCarName(Car carName) {
-        this.carName = carName;
+    public void setPassenger(PassengerCar passenger) {
+        this.passenger = passenger;
     }
 
-    public Car getModelName() {
-        return modelName;
+    public PassengerCar getElectro() {
+        return electro;
     }
 
-    public void setModelName(Car modelName) {
-        this.modelName = modelName;
-    }
-
-    public PassengerCar getSeats() {
-        return seats;
-    }
-
-    public void setSeats(PassengerCar seats) {
-        this.seats = seats;
+    public void setElectro(PassengerCar electro) {
+        this.electro = electro;
     }
 }

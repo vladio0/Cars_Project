@@ -55,12 +55,12 @@ public class CarOrderValidator {
     }
 
     public void checkOneOrder(CarOrder car1){
-        AnswerMark markAnswer = checkCarMark(car1);
+      //  AnswerMark markAnswer = checkCarMark(car1);
         AnswerCityRegister cityAnswer = checkCityRegister(car1);
-        AnswerInsurance insuranceAnswer = checkCarInsurance(car1);
-        AnswerMileage mileageAnswer = checkCarMileage(car1);
+      //  AnswerInsurance insuranceAnswer = checkCarInsurance(car1);
+      //  AnswerMileage mileageAnswer = checkCarMileage(car1);
 
-        sendMail(car1);
+      //  sendMail(car1);
     }
 
     public AnswerMark checkCarMark(CarOrder car1){

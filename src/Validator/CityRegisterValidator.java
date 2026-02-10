@@ -1,7 +1,6 @@
 package Validator;
 
 import Answer.AnswerCityRegister;
-import Domain.Car;
 import Domain.CarOrder;
 import Domain.CityRegisterCheckerResponse;
 import exception.CityRegisterException;
@@ -15,17 +14,18 @@ public class CityRegisterValidator {
     private CityRegisterChecker carChecker;
 
     public CityRegisterValidator() {
-        carChecker = new RealCityRegisterChecker();
+        carChecker = new FakeCityRegisterChecker();
     }
 
     public AnswerCityRegister checkCityRegister(CarOrder car1){
         try {
-            CityRegisterCheckerResponse seatsAns = carChecker.checkCar(car1.getSeats());
-            CityRegisterCheckerResponse bodyAns = carChecker.checkCar(car1.getBodyType());
-            CityRegisterCheckerResponse fuelAns = carChecker.checkCar(car1.getFuelType());
+            CityRegisterCheckerResponse passengerAns = carChecker.checkCar(car1.getPassenger());
+            CityRegisterCheckerResponse truckAns = carChecker.checkCar(car1.getElectro());
+            CityRegisterCheckerResponse electricAns = carChecker.checkCar(car1.getTruck());
         }
         catch(CityRegisterException ex){
-            ex.printStackTrace();
+            ex.printStackTrace(System.out);
+
         }
 
         AnswerCityRegister ans = new AnswerCityRegister();

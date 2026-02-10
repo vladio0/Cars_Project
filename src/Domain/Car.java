@@ -1,6 +1,7 @@
 package Domain;
 import java.time.LocalDate;
 
+
 public abstract class Car {
     private String carName;
     private String modelName;
