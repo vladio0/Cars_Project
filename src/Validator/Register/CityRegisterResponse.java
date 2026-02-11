@@ -1,6 +1,6 @@
-package Domain;
+package Validator.Register;
 
-public class CityRegisterCheckerResponse {
+public class CityRegisterResponse {
     private boolean existing;
     private Boolean temporal; // null/true/false
 

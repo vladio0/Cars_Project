@@ -1,19 +1,30 @@
 package Domain;
 
-public class CarOrder{
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+
+public class CarOrder {
     private long carId;
     private PassengerCar passenger;
     private PassengerCar electro;
-    private TruckCar truck;
+    public List<TruckCar> trucks;
 
-
-
-    public TruckCar getTruck() {
-        return truck;
+    public void addTruck(TruckCar truck) {
+        if (trucks == null) {
+            trucks = new ArrayList<>(5);
+        }
+        trucks.add(truck);
     }
 
-    public void setTruck(TruckCar truck) {
-        this.truck = truck;
+
+    public List<TruckCar> getTruck() {
+        return trucks;
+    }
+
+    public List<TruckCar> getTrucks() {
+        return trucks;
     }
 
     public long getCarId() {
@@ -38,5 +49,10 @@ public class CarOrder{
 
     public void setElectro(PassengerCar electro) {
         this.electro = electro;
+    }
+
+
+    public void setTrucks(List<TruckCar> trucks) {
+        this.trucks = trucks;
     }
 }

@@ -1,7 +1,6 @@
-package Validator;
+package Validator.Register;
 
 import Domain.Car;
-import Domain.CityRegisterCheckerResponse;
 import Domain.PassengerCar;
 import Domain.TruckCar;
 import exception.CityRegisterException;
@@ -17,9 +16,9 @@ public class FakeCityRegisterChecker implements CityRegisterChecker {
 
 
 
-    public CityRegisterCheckerResponse checkCar(Car car)
+    public CityRegisterResponse checkCar(Car car)
             throws CityRegisterException{
-        CityRegisterCheckerResponse res = new CityRegisterCheckerResponse();
+        CityRegisterResponse res = new CityRegisterResponse();
 
         if (car instanceof PassengerCar) {
 

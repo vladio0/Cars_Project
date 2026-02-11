@@ -42,21 +42,31 @@ public class SaveCarOrder {
         electro.setMileage(500_000);
         electro.setColor("White");
 
-        //truck1 car - Tesla
-        TruckCar truck = new TruckCar("VAZ", "1980", "Vladio",
+        //truck1 car - VAZ
+        TruckCar truck1 = new TruckCar("VAZ", "1980", "Vladio",
                 "Slovakia", LocalDate.of(2027, 1, 1));
-        truck.setTruckType("Dump truck");
-        truck.setLicensePlate("" + (3000 + carId));
-        truck.setMileage(200_000);
-        truck.setColor("Red");
-        truck.setLoadCapacity(18000.00);
-        truck.setGrossWeight(20000.00);
+        truck1.setTruckType("Dump truck");
+        truck1.setLicensePlate("" + (3000 + carId));
+        truck1.setMileage(200_000);
+        truck1.setColor("Red");
+        truck1.setLoadCapacity(18000.00);
+        truck1.setGrossWeight(20000.00);
 
+            //truck1 car - Tractor
+            TruckCar truck2 = new TruckCar("Tractor", "1900", "Arsen",
+                    "Rumania", LocalDate.of(2022, 3, 25));
+            truck2.setTruckType("tractor");
+            truck2.setLicensePlate("" + (3000 + carId));
+            truck2.setMileage(700_000);
+            truck2.setColor("Blue");
+            truck2.setLoadCapacity(1000.0);
+            truck2.setGrossWeight(10_000.0);
 
         car1.setPassenger(passenger);
         car1.setElectro(electro);
-        car1.setTruck(truck);
+        car1.addTruck(truck1);
+        car1.addTruck(truck2);
 
-        return car1;
+            return car1;
     }
 }

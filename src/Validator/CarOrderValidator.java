@@ -6,7 +6,11 @@ import Answer.AnswerMark;
 import Answer.AnswerMileage;
 import Domain.CarOrder;
 import Domain.SaveCarOrder;
+import Validator.Register.CityRegisterValidator;
 import mail.MailSender;
+
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class CarOrderValidator {
@@ -31,27 +35,27 @@ public class CarOrderValidator {
     }
 
     public void checkAll() {
-        CarOrder [] car1Array = readCarOrders();
+        List<CarOrder> carList = readCarOrders();
 
 //        for (int i = 0; i < car1Array.length; i++){
 //            System.out.println();
 //            checkOneOrder(car1Array[i]);
 //        }
 
-        for(CarOrder car1 : car1Array){
+        for(CarOrder car1 : carList){
             System.out.println();
             checkOneOrder(car1);
 
         }
     }
 
-    public CarOrder [] readCarOrders(){
-        CarOrder [] car1Array = new CarOrder[3];
+    public List<CarOrder> readCarOrders(){
+        List<CarOrder> carList = new LinkedList<>();
 
-        for(int i = 0; i < car1Array.length; i++){
-            car1Array[i] = SaveCarOrder.buildCarOrder(i);
+        for(int i = 0; i < 5; i++){
+            CarOrder car1 = SaveCarOrder.buildCarOrder(i);
         }
-        return car1Array;
+        return carList;
     }
 
     public void checkOneOrder(CarOrder car1){
