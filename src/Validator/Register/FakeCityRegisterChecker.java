@@ -4,6 +4,7 @@ import Domain.Car;
 import Domain.PassengerCar;
 import Domain.TruckCar;
 import exception.CityRegisterException;
+import exception.TransportException;
 
 public class FakeCityRegisterChecker implements CityRegisterChecker {
 
@@ -13,11 +14,13 @@ public class FakeCityRegisterChecker implements CityRegisterChecker {
     public static final String BAD_2 = "2001";
     public static final String ERROR_1 = "1002";
     public static final String ERROR_2 = "2002";
+    public static final String ERROR_TRANSPORT1 = "1003";
+    public static final String ERROR_TRANSPORT2 = "2003";
 
 
 
     public CityRegisterResponse checkCar(Car car)
-            throws CityRegisterException{
+            throws CityRegisterException, TransportException {
         CityRegisterResponse res = new CityRegisterResponse();
 
         if (car instanceof PassengerCar) {
@@ -32,10 +35,15 @@ public class FakeCityRegisterChecker implements CityRegisterChecker {
                 res.setExisting(false);
             }
             if (pc.equals(ERROR_1) || pc.equals(ERROR_2)) {
-                CityRegisterException ex = new CityRegisterException("Fake ERROR" + pc);
+                CityRegisterException ex = new CityRegisterException("1", "CAR REGISTRY ERROR" + pc);
+                throw ex;
+            }
+            if (pc.equals(ERROR_TRANSPORT1) || pc.equals(ERROR_TRANSPORT2)) {
+                TransportException ex = new TransportException("Transport ERROR" + pc);
                 throw ex;
             }
         }
+
 
         if(car instanceof TruckCar){
             res.setExisting(true);

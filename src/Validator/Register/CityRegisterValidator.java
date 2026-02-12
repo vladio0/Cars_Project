@@ -5,14 +5,12 @@ import Domain.Car;
 import Domain.CarOrder;
 import Domain.TruckCar;
 import exception.CityRegisterException;
+import exception.TransportException;
 
 import java.util.List;
 
 public class CityRegisterValidator {
-    public static String hostName;
-    protected int port;
-    private static String login;
-    String password;
+    public static final String IN_CODE = "NO_CAR_REGISTRY";
 
     private CityRegisterChecker carChecker;
 
@@ -20,33 +18,42 @@ public class CityRegisterValidator {
         carChecker = new FakeCityRegisterChecker();
     }
 
-    public AnswerCityRegister checkCityRegister(CarOrder car1) {
+    public AnswerCityRegister checkCityRegister(CarOrder co) {
         AnswerCityRegister ans = new AnswerCityRegister();
 
-        ans.addItem(checkCar(car1.getPassenger()));
-        ans.addItem(checkCar(car1.getElectro()));
-        for (TruckCar truck : car1.getTrucks()) {
+        ans.addItem(checkCar(co.getPassenger()));
+        ans.addItem(checkCar(co.getElectro()));
+        for (TruckCar truck : co.getTrucks()) {
             ans.addItem(checkCar(truck));
         }
-
         return ans;
     }
         private AnswerCityRegisterItem checkCar(Car car){
-            try {
-                    CityRegisterResponse electricAns = carChecker.checkCar(car);
-                }
+            AnswerCityRegisterItem.CityStatus status = null;
+            AnswerCityRegisterItem.CityError error = null;
+        try {
+                CityRegisterResponse tpm = carChecker.checkCar(car);
+                status = tpm.isExisting() ?
+                        AnswerCityRegisterItem.CityStatus.YES :
+                        AnswerCityRegisterItem.CityStatus.NO;
+        }
             catch(CityRegisterException ex){
                 ex.printStackTrace(System.out);
+                status = AnswerCityRegisterItem.CityStatus.ERROR;
+                error = new AnswerCityRegisterItem.CityError(ex.getCode(), ex.getMessage());
             }
-            return null;
+            catch(TransportException ex){
+                ex.printStackTrace(System.out);
+                status = AnswerCityRegisterItem.CityStatus.ERROR;
+                error = new AnswerCityRegisterItem.CityError(IN_CODE, ex.getMessage());
+            }
+            catch (Exception ex){
+                ex.printStackTrace(System.out);
+                status = AnswerCityRegisterItem.CityStatus.ERROR;
+                error = new AnswerCityRegisterItem.CityError(IN_CODE, ex.getMessage());
+            }
+            AnswerCityRegisterItem ans = new AnswerCityRegisterItem(status, car, error);
+            return ans;
     }
 }
-//            for(int i = 0; i < trucks.size(); i++){
-//                CityRegisterCheckerResponse electricAns = carChecker.checkCar(trucks.get(i));
-//            }
-//
-//            for(Iterator<TruckCar> it = trucks.iterator(); it.hasNext(); ){
-//                TruckCar truck = it.next();
-//                CityRegisterCheckerResponse electricAns = carChecker.checkCar(truck);
-//            }
-//
+
