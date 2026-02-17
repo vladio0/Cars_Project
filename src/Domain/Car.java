@@ -6,17 +6,17 @@ public abstract class Car {
     private String carName;
     private String modelName;
     private String driverName;
-    private String country; // країна реєстрації
     private LocalDate dateOfRegister; // дата реєстрації
     private String licensePlate; // номерний знак
     private String color; // колір машини
     private int mileage; // пробіг
+    private double price; // ціна
 
-    public Car(String carName, String modelName, String driverName, String country, LocalDate dateOfRegister) {
+
+    public Car(String carName, String modelName, String driverName, String countryRegister, LocalDate dateOfRegister) {
         this.carName = carName;
         this.modelName = modelName;
         this.driverName = driverName;
-        this.country = country;
         this.dateOfRegister = dateOfRegister;
     }
 
@@ -42,14 +42,6 @@ public abstract class Car {
 
     public void setDriverName(String driverName) {
         this.driverName = driverName;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     public LocalDate getDateOfRegister() {
@@ -84,13 +76,6 @@ public abstract class Car {
         this.mileage = mileage;
     }
 
-    public String getTransmission() {
-        return transmission;
-    }
-
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
-    }
 
     public double getPrice() {
         return price;
@@ -100,8 +85,6 @@ public abstract class Car {
         this.price = price;
     }
 
-    private String transmission; // коробка автомат | механіка
-    private double price; // ціна
 
 
 

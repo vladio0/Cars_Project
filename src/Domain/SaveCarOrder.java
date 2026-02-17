@@ -49,8 +49,7 @@ public class SaveCarOrder {
         truck1.setLicensePlate("" + (3000 + carId));
         truck1.setMileage(200_000);
         truck1.setColor("Red");
-        truck1.setLoadCapacity(18000.00);
-        truck1.setGrossWeight(20000.00);
+        truck1.setWeight(18000.00);
 
             //truck1 car - Tractor
             TruckCar truck2 = new TruckCar("Tractor", "1900", "Arsen",
@@ -59,8 +58,8 @@ public class SaveCarOrder {
             truck2.setLicensePlate("" + (3000 + carId));
             truck2.setMileage(700_000);
             truck2.setColor("Blue");
-            truck2.setLoadCapacity(1000.0);
-            truck2.setGrossWeight(10_000.0);
+            truck2.setWeight(1000.0);
+
 
         car1.setPassenger(passenger);
         car1.setElectro(electro);

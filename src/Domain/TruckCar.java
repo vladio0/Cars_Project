@@ -3,21 +3,28 @@ package Domain;
 import java.time.LocalDate;
 
 public class TruckCar extends Car {
-    private double loadCapacity; // Вантажопідйомність ---  у тоннах або кг
     private String truckType; // van, dump truck, tractor, tank truck
-    private String engineType; // дизель, газ
-    private double grossWeight; // максимальна вага
+    private double weight; // маса (кг)
+    private String fuelType; // дизель, газ
 
     public TruckCar(String carName, String modelName, String driverName, String country, LocalDate dateOfRegister) {
         super(carName, modelName, driverName, country, dateOfRegister);
     }
 
-    public double getLoadCapacity() {
-        return loadCapacity;
+    public String getFuelType() {
+        return fuelType;
     }
 
-    public void setLoadCapacity(double loadCapacity) {
-        this.loadCapacity = loadCapacity;
+    public void setFuelType(String fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
     public String getTruckType() {
@@ -28,20 +35,5 @@ public class TruckCar extends Car {
         this.truckType = truckType;
     }
 
-    public String getEngineType() {
-        return engineType;
-    }
-
-    public void setEngineType(String engineType) {
-        this.engineType = engineType;
-    }
-
-    public double getGrossWeight() {
-        return grossWeight;
-    }
-
-    public void setGrossWeight(double grossWeight) {
-        this.grossWeight = grossWeight;
-    }
 }
 
