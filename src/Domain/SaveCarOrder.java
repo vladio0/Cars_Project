@@ -1,12 +1,17 @@
 package Domain;
-import Domain.Car;
-import Domain.CarOrder;
+
+import dao.DictionaryDaoImp;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class SaveCarOrder {
 
-    public static void main(String [] args) {
+    public static void main(String [] args) throws Exception {
+        List<Street> d = new DictionaryDaoImp().findStreets("s");
+        for(Street s : d){
+            System.out.println(s.getStreetName());
+        }
         //CarOrder c = new buildCarOrder(10);
         //CarOrder car1 = new CarOrder();
         //  long ans = saveCarOrder(car1);
