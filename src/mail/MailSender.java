@@ -1,11 +1,10 @@
 package mail;
 
-import Domain.CarOrder;
+
+import domain.deal.CarOrder;
 
 public class MailSender {
-    public static void sendMail(CarOrder car1){
-
-        System.out.println("Mail is sent.");
-
+    public void sendMail(CarOrder co) {
+        System.out.println("Почта отправлена");
     }
 }
