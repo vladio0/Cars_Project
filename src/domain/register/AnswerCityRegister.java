@@ -1,6 +1,4 @@
-package Answer;
-
-import Validator.Register.AnswerCityRegisterItem;
+package domain.register;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +6,8 @@ import java.util.List;
 public class AnswerCityRegister {
     private List<AnswerCityRegisterItem> items;
 
-    public void  addItem(AnswerCityRegisterItem item){
-        if (items == null){
+    public void addItem(AnswerCityRegisterItem item){
+        if(items == null){
             items = new ArrayList<>(10);
         }
         items.add(item);
